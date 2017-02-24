@@ -1,3 +1,13 @@
+body {
+	color: rgb(60, 60, 60);
+}
+
+.title {
+	font-weight: bold;
+	font-size: 30;
+	text-align: center;
+}
+
 .container {
 	width: 100%;
 	text-align: center;
@@ -25,21 +35,23 @@
 #cat1__figure {
 	width: 50%;
 	float: left;
+	margin-bottom: 1em;
 }
 
-/* <img> */
-#cat1 {
-	width: 300px;
+#cat1__img {
+	max-height: 250px;
 }
 
-/* <p> */
-#cat__chat1{
+#cat1__name {
+	padding-left: 30px;
+}
+
+#cat__chat1 {
 	font-style: bold;
 	font-size: 15px;
 	margin: .5em;
 }
 
-/* <span> */
 #click__count1 {
 
 }
@@ -56,21 +68,23 @@
 #cat2__figure {
 	width: 50%;
 	overflow: hidden;
+	margin-bottom: 1em;
 }
 
-/* <img> */
-#cat2 {
-	width: 300px;
+#cat2__img {
+	max-height: 250px;
 }
 
-/* <p> */
+#cat2__name {
+	padding-left: 30px;
+}
+
 #cat__chat2{
 	font-style: bold;
 	font-size: 15px;
 	margin: .5em;
 }
 
-/* <span> */
 #click__count2 {
 
 }

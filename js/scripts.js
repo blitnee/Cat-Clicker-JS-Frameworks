@@ -1,47 +1,148 @@
-$(document).ready(function() {
+/* ================== Model ================== */
 
-   //CAT 1
-	var $click__count1 = $('#click__count1');
-   var $cat1__name = $('#cat1__name');
-   var click1 = 0;
+var model = {
 
-   // Set cat1 name
-	$cat1__name.text('Kit');
+   currentCat: null,
+   cats: [
+      {
+         name : 'cat1',
+         imgSrc : 'img/cat.png',
+         clickCount : 0
+      },
+      {
+         name : 'cat2',
+         imgSrc : 'img/cat.png',
+         clickCount : 0
+      },
+      {
+         name : 'cat3',
+         imgSrc : 'img/cat.png',
+         clickCount : 0
+      },
+      {
+         name : 'cat4',
+         imgSrc : 'img/cat.png',
+         clickCount : 0
+      },
+      {
+         name : 'cat5',
+         imgSrc : 'img/cat.png',
+         clickCount : 0
+      }
+   ]
 
-   $('#cat1').click(function() {
-   		console.log('Kitty1 has been clicked!');
-
-   		if (click1 === 100) {
-   			alert('100 clicks... Get a life! Go read a book!');
-   		} else{
-   		   // add a click on click
-   			click1++;
-   			// change score
-   			$click__count1.text(+ click1);
-   		}
-   });
-
-
-   // CAT 2
-   var $click__count2 = $('#click__count2');
-   var $cat2__name = $('#cat2__name');
-   var click2 = 0;
-
-   // Set cat2 name
-   $cat2__name.text('Kit');
-
-   $('#cat2').click(function() {
-         console.log('Kitty2 has been clicked!');
-
-         if (click2 === 100) {
-            alert('100 clicks... Get a life! Go read a book!');
-         } else{
-            // add a click on click
-            click2++;
-            // change score
-            $click__count2.text(+ click2);
-         }
-   });
+};
 
 
-});
+/* ================== Controller ================== */
+
+var controller = {
+
+   init: function() {
+      // Initialize first cat
+      console.log('cat loop reached');
+      model.currentCat = model.cats[0];
+
+      // Render Views
+      catListView.init();
+      catClickView.init();
+   },
+
+   getCurrentCat: function() {
+      return model.currentCat;
+   },
+
+   getCats: function() {
+      return model.cats;
+   },
+
+   // set the current cat to ...?
+   setCurrentCat: function(cat) {
+      model.currentCat = cat;
+   },
+
+   // increments click counter for current cat
+   incrementCounter: function() {
+      model.currentCat.clickCount++;
+      catClickView.render();
+   }
+};
+
+/* ================== Cat Click View ================== */
+//working
+var catClickView = {
+
+   init: function() {
+      // Store pointers to DOM elements
+      this.catElem = document.getElementById('cat');
+      this.catNameElem = document.getElementById('cat__name');
+      this.catImageElem = document.getElementById('cat__img');
+      this.countElem = document.getElementById('cat__count');
+
+      // On-Click invrement the current cat's counter
+      this.catImageElem.addEventListener('click', function() {
+         controller.incrementCounter();
+      });
+
+      // Render view, Update DOM elements
+      this.render();
+   },
+
+   render: function() {
+      // Update DOM elements with values of current cat
+      var currentCat = controller.getCurrentCat();
+      this.countElem.textContent = currentCat.clickCount;
+      this.catNameElem.textContent = currentCat.name;
+      this.catImageElem.src = currentCat.imgSrc;
+   }
+};
+
+
+/* ================== Cat List View ================== */
+
+var catListView = {
+
+   init: function() {
+      // Store DOM element
+      this.catListElem = document.getElementById('cat__list');
+
+      // Render view, update DOM
+      this.render();
+      console.log('catlistrendered');
+   },
+
+   render: function() {
+      var cat, elem, i;
+
+      // Get cats array
+      var cats = controller.getCats();
+
+      // Clear cat list
+      this.catListElem.innerHTML = '';
+
+      // Cat Loop
+      for (i = 0; i < cats.length; i++) {
+         // Cat currently looping over
+         cat = cats[i];
+
+         // make new cat list item and set text
+         elem = document.createElement('li');
+         elem.textContent = cat.name;
+
+         //
+         elem.addEventListener('click', (function (catCopy) {
+            return function() {
+               controller.setCurrentCat(catCopy);
+               catClickView.render();
+            };
+         })(cat));
+
+         // finally, add the element to the list
+         this.catListElem.appendChild(elem);
+      }
+   }
+};
+
+// initialize document
+controller.init();
+

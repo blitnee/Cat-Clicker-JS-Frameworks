@@ -8,38 +8,32 @@
 	</head>
 	<body>
 		<h1 class="title">Cat Clicker</h1>
+		<div class="container">
+			<!-- Cats List -->
+			<div id="catList__figure">
+				<div id="catContainer">
+					<ul id="cat__list">
+					</ul>
+				</div>
+			</div>
 
-		<!-- cat 1 -->
-		<div id="cat1__figure">
-			<div class="container">
-				<h2 id="cat1__name"></h2>
-				<img id="cat1__img" src="img/cat.png">
-			</div>
-			<div class="container">
-				<p id="cat__chat1">Click Me!</p>
-			</div>
-			<div class="container">
-				<p class="click__score">Click Score:
-				<span id="click__count1"> 0 </span></p>
+			<!-- Cat to be Clicked -->
+			<div id="cat__figure">
+				<div class="stack">
+					<h2 id="cat__name"></h2>
+					<img id="cat__img">
+				</div>
+				<div class="stack">
+					<p id="catChat">Click Me!</p>
+				</div>
+				<div class="stack">
+					<p class="clickScore">Click Score:
+					<span id="cat__count"></span></p>
+				</div>
 			</div>
 		</div>
 
-		<!-- cat 2 -->
-		<div id="cat2__figure">
-			<div class="container">
-				<h2 id="cat2__name"></h2>
-				<img id="cat2__img" src="img/cat.png">
-			</div>
-			<div class="container">
-				<p id="cat__chat2">Click Me too!</p>
-			</div>
-			<div class="container">
-				<p class="click__score">Click Score:
-				<span id="click__count2"> 0 </span></p>
-			</div>
-		</div>
-
+	    <script src="js/libs/jquery.min.js"></script>
+	    <script src="js/scripts.js"></script>
 	</body>
-    <script src="js/libs/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
 </html>

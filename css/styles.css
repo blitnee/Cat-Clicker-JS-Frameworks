@@ -10,10 +10,13 @@ body {
 
 .container {
 	width: 100%;
+}
+
+.stack {
 	text-align: center;
 }
 
-.click__score {
+.clickScore {
 	border-style: solid;
 	border-width: .5em;
 	border-color: rgba(243, 224, 211, .6);
@@ -24,68 +27,54 @@ body {
 
 
 
-
-
 /*
  *
- * CAT 1 Specific
+ * CAT LIST
  *
  */
-/* <parent div> */
-#cat1__figure {
-	width: 50%;
+#catList__figure {
+	width: 25%;
 	float: left;
 	margin-bottom: 1em;
+	background: none
+	;
 }
 
-#cat1__img {
-	max-height: 250px;
-}
-
-#cat1__name {
-	padding-left: 30px;
-}
-
-#cat__chat1 {
-	font-style: bold;
-	font-size: 15px;
-	margin: .5em;
-}
-
-#click__count1 {
+#catContainer {
 
 }
 
-
-
+#catList {
+	width: 150px;
+}
 
 /*
  *
- * CAT 2 Specific
+ * CLICKER CAT
  *
  */
-/* <parent div> */
-#cat2__figure {
-	width: 50%;
+#cat__figure {
+	width: 75%;
 	overflow: hidden;
 	margin-bottom: 1em;
+	background: none;
 }
 
-#cat2__img {
-	max-height: 250px;
-}
-
-#cat2__name {
+#name {
 	padding-left: 30px;
 }
 
-#cat__chat2{
+#cat__img {
+	max-height: 250px;
+}
+
+#catChat{
 	font-style: bold;
 	font-size: 15px;
 	margin: .5em;
 }
 
-#click__count2 {
+#clickCount {
 
 }
 

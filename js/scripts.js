@@ -83,21 +83,7 @@ var controller = {
                model.currentCat.clickCount++;
                catClickView.render();
       }
-   },
-/*
-   showAdmin: function() {
-
-   },
-
-   hideAdmin: function() {
-
    }
-*/
-
-};
-
-/* ================== Admin View ================== */
-
 
 
 /* ================== Cat Click View ================== */

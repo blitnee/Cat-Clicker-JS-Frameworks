@@ -71,13 +71,34 @@ var controller = {
    },
 
    // Increments click counter for current cat
-   incrementCounter: function() {
-      // Add 1 to click count, called by catClick view
-      model.currentCat.clickCount++;
-      // Render after click to update view
-      catClickView.render();
+   clickCounter: function() {
+      //make a 'var count' = model.currentCat.clickCount?
+      // Click loop
+      if (model.currentCat.clickCount % 100 === 0 && model.currentCat.clickCount !== 0) {
+         catClickView.render();
+         alert('That\'s ' + (model.currentCat.clickCount) + ' clicks!');
+         // Add 1 to click count, called by catClick view
+         model.currentCat.clickCount++;
+      } else {
+               model.currentCat.clickCount++;
+               catClickView.render();
+      }
+   },
+/*
+   showAdmin: function() {
+
+   },
+
+   hideAdmin: function() {
+
    }
+*/
+
 };
+
+/* ================== Admin View ================== */
+
+
 
 /* ================== Cat Click View ================== */
 
@@ -93,7 +114,7 @@ var catClickView = {
 
       // On-Click invrement the current cat's counter
       this.catImageElem.addEventListener('click', function() {
-         controller.incrementCounter();
+         controller.clickCounter();
       });
 
       // Render view, Update DOM elements

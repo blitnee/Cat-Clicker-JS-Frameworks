@@ -4,11 +4,16 @@ body {
 }
 
 .title {
-	font-size: 50px;
-	text-align: center;
-	margin: -.4em 0 .5em 0;
+    font-size: 60px;
+    text-align: center;
+    margin: -0.4em 0 0 0;
 }
 
+.subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: -.5em 0 2em 0;
+}
 .container {
 	width: 100%;
 }
@@ -24,7 +29,7 @@ body {
 	border-radius: 10px;
 	color: rgb(64, 61, 59);
 	font-size: 30px;
-	margin: 1.5em 3em 0 3em;
+	margin: 2em 3em 0 3em;
 }
 
 li:hover {
@@ -39,7 +44,7 @@ li:hover {
 #catList__figure {
 	width: 25%;
 	float: left;
-	margin: 1em 0 0 3em;
+	margin: 2em 0 0 3em;
 	background: rgba(243, 224, 211, .6);
 	border-radius: 10px;
 }
@@ -64,13 +69,18 @@ li:hover {
 	background: none;
 }
 
+#cat__name {
+	margin-bottom: 12px;
+	font-size: 25px;
+}
+
 #cat__img {
 	height: 230px;
 	width: 230px;
     border-style: solid;
 	border-color: rgba(243, 224, 211, .6);
     border-width: 2em 2em 2em 2em;
-    border-radius: 100%;
+    border-radius: 10px;
 }
 
 #catChat{

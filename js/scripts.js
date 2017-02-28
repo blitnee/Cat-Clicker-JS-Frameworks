@@ -84,7 +84,7 @@ var controller = {
                catClickView.render();
       }
    }
-
+};
 
 /* ================== Cat Click View ================== */
 

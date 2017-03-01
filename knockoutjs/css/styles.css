@@ -1,0 +1,91 @@
+body {
+	color: rgb(60, 60, 60);
+	font-family: 'Amatica SC', cursive;
+}
+
+.title {
+    font-size: 60px;
+    text-align: center;
+    margin: -0.4em 0 0 0;
+}
+
+.subtitle {
+    font-size: 15px;
+    text-align: center;
+    margin: -.5em 0 2em 0;
+    font-weight: 100;
+}
+.container {
+	width: 100%;
+}
+
+.stack {
+	text-align: center;
+}
+
+.clickScore {
+	border-style: solid;
+	border-width: .5em;
+	border-color: rgba(243, 224, 211, .6);
+	border-radius: 10px;
+	color: rgb(64, 61, 59);
+	font-size: 30px;
+	margin: 1em 3em 0 3em;
+}
+
+li:hover {
+	color: #fff;
+}
+
+/*
+ *
+ * CAT LIST
+ *
+ */
+#catList__figure {
+	width: 25%;
+	float: left;
+	margin: 2em 0 0 3em;
+	background: rgba(243, 224, 211, .6);
+	border-radius: 10px;
+}
+
+#cat__list {
+	list-style-type: none;
+	font-size: 25px;
+	text-align: center;
+    line-height: 2em;
+    padding: 0;
+}
+
+/*
+ *
+ * CLICKER CAT
+ *
+ */
+#cat__figure {
+	width: 70%;
+	overflow: hidden;
+	background: none;
+}
+
+#cat__name {
+	margin-bottom: 12px;
+	font-size: 25px;
+}
+
+#cat__img {
+	height: 230px;
+	width: 230px;
+    border-style: solid;
+	border-color: rgba(243, 224, 211, .6);
+    border-width: 2em 2em 2em 2em;
+    border-radius: 10px;
+}
+
+#catChat{
+	font-style: bold;
+	font-size: 15px;
+	margin: .5em;
+}
+

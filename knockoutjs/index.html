@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cat Clicker</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatica+SC:400,700" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1 class="title">Cat Clicker</h1>
+            <h2 class="subtitle">Developed using Knockout JS</h2>
+        </header>
+        <div class="container">
+            <!-- Cats List -->
+            <div id="catList__figure">
+                <div id="catContainer">
+                    <ul data-bind="foreach: cats" id="cat__list">
+                        <li data-bind="text: name, click: $parent.setCat">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cat to be Clicked -->
+            <div data-bind="with:currentCat" id="cat__figure">
+                <div class="stack">
+                    <h2 data-bind="text: name" id="cat__name"></h2>
+                    <img data-bind="click: $parent.clickCounter, attr: {src: imgSrc}" id="cat__img">
+                </div>
+                <div class="stack">
+                    <p id="catChat">Click Me!</p>
+                </div>
+                <div class="stack">
+                    <p class="clickScore">Click Score:
+                    <span data-bind="text: clickCount" id="cat__count"></span></p>
+                </div>
+            </div>
+        </div>
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

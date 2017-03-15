@@ -13,34 +13,31 @@ var cats = ko.observableArray([
 /* ================== ViewModel ================== */
 
 var ViewModel = function() {
-
   // Allow for access to ViewModel within Fx
   var self = this;
 
-  // Assign initial Current Cat
+  // Assign initial Current Cat to first cat in list
   this.currentCat = ko.observable(cats()[0]);
 
   // Set Current Cat on-click
   this.setCat = function(clickedCat) {
-    console.log('cat picked');
     self.currentCat(clickedCat);
+
+    console.log(self.currentCat().name + ' picked');
   };
 
   // Click Counter
   this.clickCounter = function() {
-
     if (self.currentCat().clickCount % 100 === 0 && self.currentCat().clickCount !== 0) {
       alert('That\'s ' + (self.currentCat().clickCount) + ' clicks!');
-
       self.currentCat().clickCount++;
       } else {
       self.currentCat().clickCount++;
       }
 
-
-
-    console.log('cat clicked ' + self.currentCat().clickCount + ' time(s)!');
+    console.log(self.currentCat().name + ' clicked ' + self.currentCat().clickCount + ' time(s)!');
   };
+
 
 };
 ko.applyBindings(new ViewModel);

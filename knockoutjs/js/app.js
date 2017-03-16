@@ -1,14 +1,14 @@
 /* ================== Model ================== */
 
-var cats = ko.observableArray([
-	    { name: "Art Cat", imgSrc: "img/artCat.gif", clickCount: 0 },
-	    { name: "Baker Cat", imgSrc: "img/bakerCat.gif", clickCount: 0 },
-	    { name: "Coffee Cat", imgSrc: "img/coffeeCat.gif", clickCount: 0 },
-	    { name: "Gangnam Cat", imgSrc: "img/gangnamCat.gif", clickCount: 0 },
-	    { name: "Pok\'e Cat", imgSrc: "img/pokeCat.gif", clickCount: 0 },
-	    { name: "R2D Cat", imgSrc: "img/starwarsCat.gif", clickCount: 0 },
-	    { name: "Sushi Cat", imgSrc: "img/sushiCat.gif", clickCount: 0 }
-]);
+var cats = [
+	    { name: "Art Cat", imgSrc: "img/artCat.gif", clickCount: ko.observable(0) },
+	    { name: "Baker Cat", imgSrc: "img/bakerCat.gif", clickCount: ko.observable(0) },
+	    { name: "Coffee Cat", imgSrc: "img/coffeeCat.gif", clickCount: ko.observable(0) },
+	    { name: "Gangnam Cat", imgSrc: "img/gangnamCat.gif", clickCount: ko.observable(0) },
+	    { name: "Pok\'e Cat", imgSrc: "img/pokeCat.gif", clickCount: ko.observable(0) },
+	    { name: "R2D Cat", imgSrc: "img/starwarsCat.gif", clickCount: ko.observable(0) },
+	    { name: "Sushi Cat", imgSrc: "img/sushiCat.gif", clickCount: ko.observable(0) }
+];
 
 /* ================== ViewModel ================== */
 
@@ -17,27 +17,29 @@ var ViewModel = function() {
   var self = this;
 
   // Assign initial Current Cat to first cat in list
-  this.currentCat = ko.observable(cats()[0]);
+  self.currentCat = ko.observable(cats[0]);
 
   // Set Current Cat on-click
-  this.setCat = function(clickedCat) {
+  self.setCat = function(clickedCat) {
     self.currentCat(clickedCat);
 
     console.log(self.currentCat().name + ' picked');
   };
 
   // Click Counter
-  this.clickCounter = function() {
-    if (self.currentCat().clickCount % 100 === 0 && self.currentCat().clickCount !== 0) {
-      alert('That\'s ' + (self.currentCat().clickCount) + ' clicks!');
-      self.currentCat().clickCount++;
+  self.clickCounter = function() {
+    var currentVal = self.currentCat().clickCount();
+    if (currentVal % 100 === 0 && currentVal !== 0) {
+      window.alert('That\'s ' + currentVal + ' clicks!');
+      currentVal ++;
+      self.currentCat().clickCount(currentVal);
       } else {
-      self.currentCat().clickCount++;
+        currentVal ++;
+        self.currentCat().clickCount(currentVal);
       }
-
-    console.log(self.currentCat().name + ' clicked ' + self.currentCat().clickCount + ' time(s)!');
+    console.log(self.currentCat().name + ' clicked ' + currentVal + ' time(s)!');
   };
 
 
 };
-ko.applyBindings(new ViewModel);
+ko.applyBindings(new ViewModel());

@@ -74,9 +74,10 @@ var controller = {
    clickCounter: function() {
       //make a 'var count' = model.currentCat.clickCount?
       // Click loop
-      if (model.currentCat.clickCount % 100 === 0 && model.currentCat.clickCount !== 0) {
+      if (model.currentCat.clickCount % 10 === 0 && model.currentCat.clickCount !== 0) {
          catClickView.render();
          alert('That\'s ' + (model.currentCat.clickCount) + ' clicks!');
+         model.currentCat.imgSrc = 'img/CharCat.gif';
          // Add 1 to click count, called by catClick view
          model.currentCat.clickCount++;
       } else {
